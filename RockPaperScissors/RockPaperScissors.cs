@@ -2,18 +2,16 @@
 
 public class RockPaperScissors
 {
+    private static readonly Outcomes[,] ResultsMatrix =
+    {
+        //                Rock                    Paper                   Scissors
+        /* Rock     */ {  Outcomes.Tie,           Outcomes.PlayerLoses,   Outcomes.PlayerWins  },
+        /* Paper    */ {  Outcomes.PlayerWins,    Outcomes.Tie,           Outcomes.PlayerLoses },
+        /* Scissors */ {  Outcomes.PlayerLoses,   Outcomes.PlayerWins,    Outcomes.Tie         },
+    };
+
     public Outcomes Play(PlayerMoves playerMove, PlayerMoves opponentMove)
     {
-        if (playerMove == PlayerMoves.Paper)
-        {
-            if(opponentMove == PlayerMoves.Scissors)
-                return Outcomes.PlayerLoses;
-            
-            return Outcomes.PlayerWins;
-        }
-        if (playerMove == PlayerMoves.Scissors)
-            return Outcomes.PlayerWins;
-
-        return Outcomes.PlayerLoses;
+        return ResultsMatrix[(int)playerMove, (int)opponentMove];
     }
 }

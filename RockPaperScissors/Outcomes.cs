@@ -3,5 +3,6 @@
 public enum Outcomes
 {
     PlayerWins,
-    PlayerLoses
+    PlayerLoses,
+    Tie
 }
