@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzzer", "FizzBuzz\Fizz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz.Tests", "FizzBuzz.Tests\FizzBuzz.Tests.csproj", "{81049AA2-411B-4CA6-A000-FBD0AF87EFFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeCalculator", "AgeCalculator\AgeCalculator.csproj", "{518DB269-758E-49A2-BBC4-462EF6F6932D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeCalculator.Tests", "AgeCalculator.Tests\AgeCalculator.Tests.csproj", "{CA265F30-BF6C-44D7-9923-934964ED0C03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{81049AA2-411B-4CA6-A000-FBD0AF87EFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81049AA2-411B-4CA6-A000-FBD0AF87EFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81049AA2-411B-4CA6-A000-FBD0AF87EFFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518DB269-758E-49A2-BBC4-462EF6F6932D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518DB269-758E-49A2-BBC4-462EF6F6932D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518DB269-758E-49A2-BBC4-462EF6F6932D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518DB269-758E-49A2-BBC4-462EF6F6932D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA265F30-BF6C-44D7-9923-934964ED0C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA265F30-BF6C-44D7-9923-934964ED0C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA265F30-BF6C-44D7-9923-934964ED0C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA265F30-BF6C-44D7-9923-934964ED0C03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

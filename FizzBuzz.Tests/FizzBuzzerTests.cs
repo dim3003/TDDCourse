@@ -34,7 +34,7 @@ public class FizzBuzzerTests
             public void ShouldReturnBuzz(int number)
             {
                 // Arrange
-                var sut = new FizzBuzzer();
+                var sut = CreateFizzBuzzer();
                 // Act
                 var actual = sut.Go(number);
                 // Assert
@@ -51,12 +51,13 @@ public class FizzBuzzerTests
             public void ShouldReturnFizzBuzz(int number)
             {
                 // Arrange
-                var sut = new FizzBuzzer();
+                FizzBuzzer sut = CreateFizzBuzzer();
                 // Act
                 var actual = sut.Go(number);
                 // Assert
                 Assert.That(actual, Is.EqualTo("FizzBuzz"));
             }
+
         }
 
         [TestFixture]
@@ -68,12 +69,18 @@ public class FizzBuzzerTests
             public void ShouldReturnNumberAsString(int number)
             {
                 // Arrange
-                var sut = new FizzBuzzer();
+                var sut = CreateFizzBuzzer();
                 // Act
                 var actual = sut.Go(number);
                 // Assert
                 Assert.That(actual, Is.EqualTo(number.ToString()));
             }
+        }
+
+        private static FizzBuzzer CreateFizzBuzzer()
+        {
+            // Arrange
+            return new FizzBuzzer();
         }
     }
 }
