@@ -41,6 +41,7 @@ public class CharacterCopyTests
 
         [TestCase('a', 'x', '\n')]
         [TestCase('u', 'v', 'e', 'm', 'd', '\n')]
+        [TestCase('!', ',', '2', 'd', '\n')]
         public void GivenManyCharactersBeforeNewLine_ShouldWriteThoseCharacters(
             char firstChar,
             params char[] nextChars)
@@ -62,6 +63,26 @@ public class CharacterCopyTests
                 destination.Received(group.Count()).WriteChar(group.Key);
             }
             destination.DidNotReceive().WriteChar('\n');
+        }
+
+        [TestCase('\n')]
+        public void GivenNoCharacterBeforeNewLine_ShouldWriteNothing(
+            char firstChar,
+            params char[] nextChars)
+        {
+            // Arrange
+            ISource source = CreateSource(firstChar, nextChars);
+
+            var destination = Substitute.For<IDestination>();
+
+            var sut = new Copier(source, destination);
+
+            // Act
+            sut.Copy();
+
+            // Assert
+            destination.DidNotReceive().WriteChar(firstChar);
+            destination.DidNotReceive().WriteChar(Arg.Any<char>());
         }
     }
 }
