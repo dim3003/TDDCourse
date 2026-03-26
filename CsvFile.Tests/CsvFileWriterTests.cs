@@ -1,5 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
+using Bogus;
 
 namespace CsvFile.Tests;
 
@@ -10,45 +11,45 @@ public class CsvFileWriterTests
     public void Write_GivenOneCustomer_ShouldWriteCustomerDataAsCsvLineToProvidedFile()
     {
         // Arrange
-        var customer = CreateCustomer("Brandon Page", "12345678");
+        var customers = CustomerFaker.Generate(1);
         var fileSystem = CreateMockFileSystem();
         var sut = CreateCustomerCsvFileWriter(fileSystem);
         // Act
-        sut.Write("customers.csv", new List<Customer> { customer });
+        sut.Write("customers.csv", customers);
         // Assert
-        AssertCustomerWasWrittenToFile(fileSystem, "customers.csv", customer);
+        AssertCustomerWasWrittenToFile(fileSystem, "customers.csv", customers.First());
     }
 
     [Test]
     public void Write_GivenTwoCustomers_ShouldWriteBothCustomersDataAsCsvLinesToProvidedFile()
     {
         // Arrange
-        var customer1 = CreateCustomer("Brandon Page", "12345678");
-        var customer2 = CreateCustomer("John Doe", "87654321");
+        var customers = CustomerFaker.Generate(2);
         var fileSystem = CreateMockFileSystem();
         var sut = CreateCustomerCsvFileWriter(fileSystem);
         // Act
-        sut.Write("cust.csv", new List<Customer> { customer1, customer2 });
+        sut.Write("cust.csv", customers);
         // Assert
-        AssertCustomerWasWrittenToFile(fileSystem, "cust.csv", customer1);
-        AssertCustomerWasWrittenToFile(fileSystem, "cust.csv", customer2);
+        foreach(var customer in customers)
+        {
+            AssertCustomerWasWrittenToFile(fileSystem, "cust.csv", customer);
+        }
     }
 
     [Test]
     public void Write_GivenThreeCustomers_ShouldWriteAllCustomersDataAsCsvLinesToProvidedFile()
     {
         // Arrange
-        var customer1 = CreateCustomer("Brandon Page", "12345678");
-        var customer2 = CreateCustomer("John Doe", "87654321");
-        var customer3 = CreateCustomer("Jane Smith", "11223344");
+        var customers = CustomerFaker.Generate(3);
         var fileSystem = CreateMockFileSystem();
         var sut = CreateCustomerCsvFileWriter(fileSystem);
         // Act
-        sut.Write("cust1.csv", new List<Customer> { customer1, customer2, customer3 });
+        sut.Write("cust1.csv", customers);
         // Assert
-        AssertCustomerWasWrittenToFile(fileSystem, "cust1.csv", customer1);
-        AssertCustomerWasWrittenToFile(fileSystem, "cust1.csv", customer2);
-        AssertCustomerWasWrittenToFile(fileSystem, "cust1.csv", customer3);
+        foreach(var customer in customers)
+        {
+            AssertCustomerWasWrittenToFile(fileSystem, "cust1.csv", customer);
+        }
     }
 
     private static void AssertCustomerWasWrittenToFile(IFileSystem fileSystem, string fileName, Customer customer)
@@ -56,14 +57,9 @@ public class CsvFileWriterTests
         fileSystem.Received(1).WriteLine(fileName, $"{customer.Name},{customer.ContactNumber}");
     }
 
-    private static Customer CreateCustomer(string name, string contactNumber)
-    {
-        return new Customer 
-        { 
-            Name = name,
-            ContactNumber = contactNumber 
-        };
-    }
+    private static readonly Faker<Customer> CustomerFaker = new Faker<Customer>()
+        .RuleFor(c => c.Name, f => f.Person.FullName)
+        .RuleFor(c => c.ContactNumber, f => f.Phone.PhoneNumber("########"));
 
     private static IFileSystem CreateMockFileSystem()
     {
