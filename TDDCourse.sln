@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCopy", "CharacterC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCopy.Tests", "CharacterCopy.Tests\CharacterCopy.Tests.csproj", "{106348B6-301E-16F2-A356-96676CAD9E07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFile", "CsvFile\CsvFile.csproj", "{3F4968DE-F0E9-4530-8984-A639F3CA1237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFile.Tests", "CsvFile.Tests\CsvFile.Tests.csproj", "{EE1E3D99-08FA-4B44-8441-9EFC6EA59B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{106348B6-301E-16F2-A356-96676CAD9E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106348B6-301E-16F2-A356-96676CAD9E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106348B6-301E-16F2-A356-96676CAD9E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4968DE-F0E9-4530-8984-A639F3CA1237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4968DE-F0E9-4530-8984-A639F3CA1237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4968DE-F0E9-4530-8984-A639F3CA1237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4968DE-F0E9-4530-8984-A639F3CA1237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1E3D99-08FA-4B44-8441-9EFC6EA59B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1E3D99-08FA-4B44-8441-9EFC6EA59B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1E3D99-08FA-4B44-8441-9EFC6EA59B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1E3D99-08FA-4B44-8441-9EFC6EA59B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
